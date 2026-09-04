@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETIMAD TRADERS | now in jinnah garden</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            urdu: ['"Noto Nastaliq Urdu"', 'serif']
+          },
+          colors: {
+            ios: {
+              bg: '#090B10',
+              card: 'rgba(255, 255, 255, 0.05)',
+              cardBorder: 'rgba(255, 255, 255, 0.12)',
+              primary: '#6366F1',
+              accent: '#38BDF8',
+              emerald: '#10B981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080A0F;
+      color: #E2E8F0;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .liquid-glass {
+      background: radial-gradient(130% 100% at 50% 0%, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    }
+
+    .liquid-nav {
+      background: rgba(13, 16, 23, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Ambient Liquid Orbs */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.45;
+      pointer-events: none;
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(60px, 40px) scale(1.15); }
+    }
+
+    /* Brand Glow Animation */
+    .brand-glow {
+      background: linear-gradient(90deg, #38BDF8, #818CF8, #C084FC, #38BDF8);
+      background-size: 300% 100%;
+      animation: glowShift 6s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes glowShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* Splash Screen Animations */
+    #splashScreen {
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+    }
+    
+    .splash-logo-anim {
+      animation: splashPulse 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes splashPulse {
+      0% { transform: scale(0.95); filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.4)); }
+      100% { transform: scale(1.05); filter: drop-shadow(0 0 45px rgba(56, 189, 248, 0.8)); }
+    }
+
+    .splash-progress-bar {
+      animation: splashLoad 4.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+
+    @keyframes splashLoad {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #080A0F; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+  </style>
+</head>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+  <!-- 5-SECOND ULTRA PROFESSIONAL SPLASH SCREEN -->
+  <div id="splashScreen" class="fixed inset-0 z-[9999] bg-[#07090E] flex flex-col items-center justify-center">
+    <!-- Splash Ambient Glows -->
+    <div class="glow-orb w-[300px] h-[300px] bg-indigo-600 top-1/4 left-1/4"></div>
+    <div class="glow-orb w-[300px] h-[300px] bg-sky-500 bottom-1/4 right-1/4"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center px-4">
+      <div class="splash-logo-anim w-24 h-24 rounded-3xl bg-gradient-to-tr from-indigo-500 via-sky-400 to-emerald-400 flex items-center justify-center text-white font-black text-4xl shadow-2xl mb-6 border border-white/20">
+        ET
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-wider brand-glow mb-2">
+        ETIMAD TRADERS
+      </h1>
+      <p class="text-xs sm:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase">
+        now in jinnah garden
+      </p>
+
+      <!-- Liquid Progress Bar -->
+      <div class="w-48 h-1.5 bg-white/10 rounded-full mt-10 overflow-hidden relative backdrop-blur-md">
+        <div class="splash-progress-bar h-full bg-gradient-to-r from-sky-400 via-indigo-500 to-emerald-400 rounded-full"></div>
+      </div>
+      <span class="text-[10px] text-gray-500 mt-3 font-mono">LOADING PREMIUM EXPERIENCE...</span>
+    </div>
+  </div>
+
+  <!-- Background Liquid Lighting -->
+  <div class="glow-orb w-[450px] h-[450px] bg-indigo-600 top-[-100px] left-[-80px]"></div>
+  <div class="glow-orb w-[500px] h-[500px] bg-cyan-600 top-[35%] right-[-150px]"></div>
+  <div class="glow-orb w-[400px] h-[400px] bg-emerald-600 bottom-[-100px] left-[20%]"></div>
+
+  <!-- Header Navigation -->
+  <nav class="liquid-nav fixed top-0 w-full z-40 px-5 sm:px-10 py-4 flex items-center justify-between transition-all">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 via-sky-400 to-emerald-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-500/30">
+        ET
+      </div>
+      <div>
+        <h1 class="text-lg font-extrabold tracking-tight brand-glow flex items-center gap-2">
+          ETIMAD TRADERS
+        </h1>
+        <p class="text-[10px] text-gray-400 font-medium tracking-wide">now in jinnah garden</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Menu Button -->
+    <button onclick="toggleMenu()" class="liquid-glass p-3 rounded-2xl hover:border-indigo-400/50 transition-all active:scale-95 group">
+      <svg class="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- iOS Styled Side Drawer (Menu) -->
+  <div id="sideMenuOverlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+  <aside id="sideMenu" class="fixed top-0 right-0 w-[85%] max-w-[340px] h-full z-50 bg-[#0c1017]/95 backdrop-blur-2xl border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+    <div>
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          <i class="fa-solid fa-layer-group text-indigo-400"></i> Categories
+        </h2>
+        <button onclick="toggleMenu()" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Categories Filter List -->
+      <div class="space-y-2" id="categoriesList">
+        <button onclick="filterByCategory('all')" class="category-btn active-cat w-full text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all flex items-center justify-between bg-indigo-600/30 text-indigo-300 border border-indigo-500/40">
+          <span><i class="fa-solid fa-border-all mr-2"></i> All Products</span>
+          <span id="allCount" class="text-xs px-2 py-0.5 rounded-full bg-white/10">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Admin Link at Bottom of Drawer -->
+    <div class="pt-6 border-t border-white/10">
+      <button onclick="openAdminAuthModal()" class="w-full py-3.5 px-4 rounded-2xl text-xs font-semibold bg-white/[0.04] hover:bg-white/[0.09] text-gray-400 hover:text-gray-200 border border-white/10 flex items-center justify-center gap-2 transition-all">
+        <i class="fa-solid fa-lock text-[11px]"></i> Admin Management Portal
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Hero Section -->
+  <header class="pt-32 pb-8 px-5 sm:px-10 max-w-7xl mx-auto">
+    <div class="liquid-glass rounded-3xl p-8 sm:p-12 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8">
+      <div class="max-w-xl z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          now in jinnah garden • Munasib Qistein
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          ETIMAD TRADERS, <br>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400">Gharailu Saman Naqad o Qist</span>
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-4 font-normal">
+          Fridge, Washing Machine, LED TV, Inverter AC aur tamam saman pure itimad k sath hasil karein.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3.5 z-10 w-full sm:w-auto">
+        <div class="liquid-glass p-4 rounded-2xl text-center border-white/5">
+          <i class="fa-solid fa-truck-fast text-2xl text-cyan-400 mb-2"></i>
+          <p class="text-xs text-gray-400">Fast Delivery</p>
+          <p class="text-sm font-bold text-white mt-1">Jinnah Garden</p>
+        </div>
+        <div class="liquid-glass p-4 rounded-2xl text-center border-white/5">
+          <i class="fa-solid fa-hand-holding-dollar text-2xl text-emerald-400 mb-2"></i>
+          <p class="text-xs text-gray-400">Aasan Qist</p>
+          <p class="text-sm font-bold text-white mt-1">Munafa Kam</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Quick Pills -->
+  <section class="px-5 sm:px-10 max-w-7xl mx-auto mb-8">
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="quickCategoryPills"></div>
+  </section>
+
+  <!-- Products Grid -->
+  <main class="px-5 sm:px-10 max-w-7xl mx-auto pb-24">
+    <div class="flex justify-between items-end mb-6">
+      <div>
+        <h3 class="text-2xl font-bold text-white tracking-tight" id="activeCategoryHeading">Dastiyab Saman</h3>
+        <p class="text-xs text-gray-400 mt-0.5">Har item par naqad aur qist dono sahuliyat mojood hain</p>
+      </div>
+      <span id="productCounter" class="text-xs px-3 py-1 rounded-full liquid-glass text-gray-300 font-medium">Loading...</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="productsGrid"></div>
+  </main>
+
+  <!-- Order Now Modal -->
+  <div id="orderModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="liquid-glass bg-[#0F141E]/95 border-white/15 w-full max-w-lg rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative">
+      <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-5">
+        <div>
+          <span class="text-xs text-indigo-400 font-semibold tracking-wider uppercase">Order Confirmation</span>
+          <h3 class="text-xl font-bold text-white" id="orderModalProdName">Product Name</h3>
+        </div>
+        <button onclick="closeOrderModal()" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <div class="liquid-glass p-3 rounded-2xl mb-5 flex justify-between items-center text-xs">
+        <div>
+          <span class="text-gray-400 block">Naqad Price:</span>
+          <span class="font-bold text-white text-sm" id="modalCashPrice">PKR 0</span>
+        </div>
+        <div class="text-right">
+          <span class="text-gray-400 block">Qist Advance:</span>
+          <span class="font-bold text-emerald-400 text-sm" id="modalAdvancePrice">PKR 0</span>
+        </div>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1.5">Kharidari Ka Tareeqa (Payment Type)</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="cursor-pointer">
+              <input type="radio" name="paymentType" value="Naqad (Cash)" checked class="peer hidden" />
+              <div class="liquid-glass peer-checked:border-indigo-500 peer-checked:bg-indigo-500/20 p-3 rounded-2xl text-center transition-all text-xs font-semibold text-gray-300 peer-checked:text-white">
+                <i class="fa-solid fa-money-bill-wave mb-1 block text-base text-emerald-400"></i> Naqad (Cash)
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="paymentType" value="Aasan Qist (Installments)" class="peer hidden" />
+              <div class="liquid-glass peer-checked:border-indigo-500 peer-checked:bg-indigo-500/20 p-3 rounded-2xl text-center transition-all text-xs font-semibold text-gray-300 peer-checked:text-white">
+                <i class="fa-solid fa-calendar-check mb-1 block text-base text-sky-400"></i> Aasan Qiston Par
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Pura Naam (Full Name) *</label>
+          <input type="text" id="custName" required placeholder="Ali Khan" class="w-full liquid-glass rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Phone Number *</label>
+            <input type="tel" id="custPhone" required placeholder="03001234567" class="w-full liquid-glass rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp Number *</label>
+            <input type="tel" id="custWhatsapp" required placeholder="03449721453" class="w-full liquid-glass rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">ID Card No (CNIC) *</label>
+          <input type="text" id="custCnic" required placeholder="12345-1234567-1" class="w-full liquid-glass rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Mukammal Ghar Ka Pata (Full Address) *</label>
+          <textarea id="custAddress" required rows="2" placeholder="House / Street / City" class="w-full liquid-glass rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-indigo-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold text-sm shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Slip Generate & Order On WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal -->
+  <div id="adminAuthModal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="liquid-glass bg-[#0F141E]/95 border-white/15 w-full max-w-sm rounded-3xl p-6 text-center">
+      <div class="w-12 h-12 rounded-2xl bg-indigo-600/30 border border-indigo-500/30 flex items-center justify-center mx-auto mb-4 text-indigo-400">
+        <i class="fa-solid fa-shield-halved text-xl"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-1">Admin Access</h3>
+      <p class="text-xs text-gray-400 mb-5">Enter security PIN code to manage inventory</p>
+
+      <div class="space-y-4">
+        <input type="password" id="adminPassInput" maxlength="12" placeholder="Enter PIN" class="w-full liquid-glass text-center tracking-[8px] text-lg font-bold rounded-2xl py-3 text-white focus:outline-none focus:border-indigo-500" />
+        <div class="flex gap-2">
+          <button onclick="closeAdminAuthModal()" class="flex-1 py-2.5 rounded-xl liquid-glass text-xs font-semibold text-gray-400 hover:text-white">Cancel</button>
+          <button onclick="checkAdminPassword()" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white shadow-lg shadow-indigo-600/30">Unlock</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Modal -->
+  <div id="adminDashboard" class="fixed inset-0 bg-black/85 backdrop-blur-xl z-50 hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="liquid-glass bg-[#0C1017]/95 border-white/15 w-full max-w-5xl h-[92vh] rounded-3xl p-6 flex flex-col">
+      <!-- Admin Header -->
+      <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-4">
+        <div>
+          <span class="text-xs text-emerald-400 font-semibold tracking-widest uppercase">SECURED WORKSPACE</span>
+          <h2 class="text-xl font-bold text-white">Admin Control Center</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="resetToSampleProducts()" class="text-xs px-3 py-1.5 rounded-xl liquid-glass text-amber-300 hover:text-amber-200">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Data
+          </button>
+          <button onclick="closeAdminDashboard()" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden flex-1">
+        <!-- Add Product Form -->
+        <div class="lg:col-span-5 liquid-glass p-5 rounded-2xl overflow-y-auto max-h-full">
+          <h4 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-circle-plus text-indigo-400"></i> Naya Saman Add Karein
+          </h4>
+          <form id="addProductForm" onsubmit="handleProductAdd(event)" class="space-y-3.5 text-xs">
+            <div>
+              <label class="block font-medium text-gray-300 mb-1">Category (Khud Likhein ya Select Karein)</label>
+              <input type="text" id="prodCategory" required placeholder="e.g. Fridge, AC, Washing Machine" list="categoryOptions" class="w-full liquid-glass rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-indigo-400" />
+              <datalist id="categoryOptions"></datalist>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-300 mb-1">Product Name</label>
+              <input type="text" id="prodName" required placeholder="e.g. Haier 1.5 Ton Inverter AC" class="w-full liquid-glass rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-indigo-400" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-medium text-emerald-400 mb-1">Naqad Price (PKR)</label>
+                <input type="number" id="prodCashPrice" required placeholder="85000" class="w-full liquid-glass rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-400" />
+              </div>
+              <div>
+                <label class="block font-medium text-sky-400 mb-1">Qist Advance (PKR)</label>
+                <input type="number" id="prodAdvance" required placeholder="20000" class="w-full liquid-glass rounded-xl px-3 py-2 text-white focus:outline-none focus:border-sky-400" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-medium text-gray-300 mb-1">Mahana Qist (Monthly)</label>
+                <input type="number" id="prodMonthly" required placeholder="6500" class="w-full liquid-glass rounded-xl px-3 py-2 text-white focus:outline-none focus:border-indigo-400" />
+              </div>
+              <div>
+                <label class="block font-medium text-gray-300 mb-1">Duration (Months)</label>
+                <input type="text" id="prodTenure" required placeholder="12 Mahine" class="w-full liquid-glass rounded-xl px-3 py-2 text-white focus:outline-none focus:border-indigo-400" />
+              </div>
+            </div>
+
+            <!-- GALLERY FILE UPLOAD FIELD (REPLACED URL LINK) -->
+            <div>
+              <label class="block font-medium text-indigo-300 mb-1 flex items-center justify-between">
+                <span><i class="fa-solid fa-image mr-1"></i> Upload Product Image (Phone Gallery)</span>
+                <span class="text-[10px] text-gray-400">Direct Gallery</span>
+              </label>
+              <div class="relative">
+                <input type="file" id="prodImageFile" accept="image/*" required onchange="handleImageSelection(event)" class="w-full text-xs text-gray-300 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 liquid-glass rounded-xl p-2 cursor-pointer focus:outline-none transition-all" />
+              </div>
+
+              <!-- Live Upload Thumbnail Preview -->
+              <div id="imagePreviewWrapper" class="mt-2.5 hidden flex items-center gap-3 p-2 rounded-xl bg-white/[0.04] border border-white/10">
+                <img id="imagePreviewImg" class="w-14 h-14 object-cover rounded-lg border border-indigo-400/30 shadow" alt="Selected Preview" />
+                <div class="flex-1 min-w-0">
+                  <p class="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check"></i> Image Ready
+                  </p>
+                  <p class="text-[10px] text-gray-400 truncate">Saved from gallery</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-300 mb-1">Short Description</label>
+              <textarea id="prodDesc" rows="2" placeholder="10 Saal Warranty, Energy Saver..." class="w-full liquid-glass rounded-xl px-3.5 py-1.5 text-white focus:outline-none focus:border-indigo-400"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-white shadow-lg shadow-indigo-600/30 transition-all">
+              Save Product & Publish
+            </button>
+          </form>
+        </div>
+
+        <!-- Inventory List -->
+        <div class="lg:col-span-7 liquid-glass p-5 rounded-2xl overflow-y-auto max-h-full flex flex-col">
+          <h4 class="text-sm font-bold text-white mb-4 flex items-center justify-between">
+            <span><i class="fa-solid fa-boxes-stacked text-emerald-400 mr-2"></i> Maujooda Inventory</span>
+            <span id="adminTotalItems" class="text-xs text-gray-400 font-normal">0 Items</span>
+          </h4>
+
+          <div class="space-y-3 overflow-y-auto flex-1 pr-1" id="adminProductsTable"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    const WHATSAPP_TARGET = "923449721453"; // 03449721453
+    const _AP_HASH = "001122"; // Protected PIN
+
+    // Splash Screen Timer (5 Seconds)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splashScreen');
+        splash.style.opacity = '0';
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 800);
+      }, 5000);
+    });
+
+    // Default Products
+    const DEFAULT_PRODUCTS = [
+      {
+        id: 1,
+        name: "Dawlance 9173 WB Refrigerator",
+        category: "Refrigerator",
+        cashPrice: 94000,
+        advance: 25000,
+        monthly: 6900,
+        tenure: "12 Mahine",
+        image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=700&auto=format&fit=crop&q=80",
+        desc: "Low Voltage operation, 12 saal compressor warranty aur high energy efficient model."
+      },
+      {
+        id: 2,
+        name: "Haier 1.5 Ton Smart Inverter AC",
+        category: "Air Conditioner",
+        cashPrice: 155000,
+        advance: 40000,
+        monthly: 11500,
+        tenure: "12 Mahine",
+        image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&auto=format&fit=crop&q=80",
+        desc: "Self-cleaning system, T3 Inverter compressor jo 54 degree garmi me bhi chilled cooling kare."
+      },
+      {
+        id: 3,
+        name: "Super Asia Automatic Washing Machine",
+        category: "Washing Machine",
+        cashPrice: 68000,
+        advance: 18000,
+        monthly: 5000,
+        tenure: "12 Mahine",
+        image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=700&auto=format&fit=crop&q=80",
+        desc: "Fuzzy logic automatic wash, rust free body aur powerful pulsator for neat wash."
+      },
+      {
+        id: 4,
+        name: "Samsung 50 Inch Crystal UHD 4K LED",
+        category: "LED TV",
+        cashPrice: 138000,
+        advance: 35000,
+        monthly: 9900,
+        tenure: "12 Mahine",
+        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=700&auto=format&fit=crop&q=80",
+        desc: "Smart TV with YouTube, Netflix, Voice Control aur Ultra Vivid Colors."
+      }
+    ];
+
+    let products = JSON.parse(localStorage.getItem('etimad_products')) || DEFAULT_PRODUCTS;
+    let currentCategory = 'all';
+    let selectedProductForOrder = null;
+    let currentUploadedBase64 = "";
+
+    document.addEventListener('DOMContentLoaded', () => {
+      syncLocalStorage();
+      renderAll();
+    });
+
+    function syncLocalStorage() {
+      try {
+        localStorage.setItem('etimad_products', JSON.stringify(products));
+      } catch (err) {
+        alert("Storage full! Bara-e-meherbani puranay items delete karein ya choti tasweer upload karein.");
+      }
+    }
+
+    function renderAll() {
+      renderCategories();
+      renderProducts();
+      renderAdminList();
+    }
+
+    function getUniqueCategories() {
+      return [...new Set(products.map(p => p.category))];
+    }
+
+    function renderCategories() {
+      const cats = getUniqueCategories();
+      const categoriesList = document.getElementById('categoriesList');
+      const quickPills = document.getElementById('quickCategoryPills');
+      const datalist = document.getElementById('categoryOptions');
+      
+      document.getElementById('allCount').innerText = products.length;
+
+      let drawerHTML = `
+        <button onclick="filterByCategory('all')" class="category-btn w-full text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all flex items-center justify-between ${currentCategory === 'all' ? 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/40' : 'text-gray-400 hover:bg-white/5'}">
+          <span><i class="fa-solid fa-border-all mr-2"></i> All Products</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-white/10">${products.length}</span>
+        </button>
+      `;
+
+      let quickHTML = `
+        <button onclick="filterByCategory('all')" class="whitespace-nowrap px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${currentCategory === 'all' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' : 'liquid-glass text-gray-400 hover:text-white'}">
+          All Products
+        </button>
+      `;
+
+      let datalistHTML = '';
+
+      cats.forEach(cat => {
+        const count = products.filter(p => p.category === cat).length;
+        const isActive = currentCategory === cat;
+
+        drawerHTML += `
+          <button onclick="filterByCategory('${cat}')" class="category-btn w-full text-left px-4 py-3 rounded-2xl text-sm font-semibold transition-all flex items-center justify-between ${isActive ? 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/40' : 'text-gray-400 hover:bg-white/5'}">
+            <span><i class="fa-solid fa-chevron-right text-xs mr-2 opacity-50"></i> ${cat}</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-white/10">${count}</span>
+          </button>
+        `;
+
+        quickHTML += `
+          <button onclick="filterByCategory('${cat}')" class="whitespace-nowrap px-4 py-2 rounded-2xl text-xs font-semibold transition-all ${isActive ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' : 'liquid-glass text-gray-400 hover:text-white'}">
+            ${cat}
+          </button>
+        `;
+
+        datalistHTML += `<option value="${cat}">`;
+      });
+
+      categoriesList.innerHTML = drawerHTML;
+      quickPills.innerHTML = quickHTML;
+      datalist.innerHTML = datalistHTML;
+    }
+
+    function filterByCategory(cat) {
+      currentCategory = cat;
+      document.getElementById('activeCategoryHeading').innerText = cat === 'all' ? 'Dastiyab Saman' : cat;
+      renderCategories();
+      renderProducts();
+      
+      const sideMenu = document.getElementById('sideMenu');
+      if (!sideMenu.classList.contains('translate-x-full')) {
+        toggleMenu();
+      }
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const counter = document.getElementById('productCounter');
+      
+      const filtered = currentCategory === 'all' 
+        ? products 
+        : products.filter(p => p.category === currentCategory);
+
+      counter.innerText = `${filtered.length} Items Available`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center">
+            <i class="fa-solid fa-box-open text-4xl text-gray-600 mb-3"></i>
+            <p class="text-gray-400 text-sm">Iss category me filhal koi saman mojood nahi hai.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="liquid-glass rounded-3xl overflow-hidden group hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-52 w-full overflow-hidden bg-black/40">
+              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=700'" />
+              <span class="absolute top-3 left-3 text-[11px] font-bold px-3 py-1 rounded-full liquid-glass text-indigo-300 backdrop-blur-md border-white/20">
+                ${item.category}
+              </span>
+            </div>
+
+            <div class="p-5">
+              <h4 class="text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-indigo-300 transition-colors">${item.name}</h4>
+              <p class="text-xs text-gray-400 mb-4 line-clamp-2 leading-relaxed">${item.desc}</p>
+
+              <div class="space-y-2">
+                <div class="p-2.5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs font-semibold text-gray-300">Naqad Price:</span>
+                  </div>
+                  <span class="text-sm font-extrabold text-emerald-400">Rs. ${Number(item.cashPrice).toLocaleString()}</span>
+                </div>
+
+                <div class="p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                  <div class="flex items-center justify-between text-xs mb-1">
+                    <span class="text-indigo-300 font-semibold flex items-center gap-1.5">
+                      <i class="fa-solid fa-clock-rotate-left"></i> Aasan Qist Plan:
+                    </span>
+                    <span class="text-[11px] text-gray-400 font-medium">${item.tenure}</span>
+                  </div>
+                  <div class="flex justify-between items-center text-xs font-bold pt-1 border-t border-indigo-500/15">
+                    <span class="text-gray-300">Advance: <span class="text-sky-300">Rs. ${Number(item.advance).toLocaleString()}</span></span>
+                    <span class="text-gray-300">Mahana: <span class="text-indigo-400">Rs. ${Number(item.monthly).toLocaleString()}</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="openOrderModal(${item.id})" class="w-full py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all active:scale-98">
+              <i class="fa-solid fa-bag-shopping"></i> Abhi Order Karein
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleMenu() {
+      const drawer = document.getElementById('sideMenu');
+      const overlay = document.getElementById('sideMenuOverlay');
+      
+      const isClosed = drawer.classList.contains('translate-x-full');
+      if (isClosed) {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      }
+    }
+
+    function openOrderModal(productId) {
+      selectedProductForOrder = products.find(p => p.id === productId);
+      if (!selectedProductForOrder) return;
+
+      document.getElementById('orderModalProdName').innerText = selectedProductForOrder.name;
+      document.getElementById('modalCashPrice').innerText = `Rs. ${Number(selectedProductForOrder.cashPrice).toLocaleString()}`;
+      document.getElementById('modalAdvancePrice').innerText = `Rs. ${Number(selectedProductForOrder.advance).toLocaleString()}`;
+
+      document.getElementById('orderModal').classList.remove('hidden');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.add('hidden');
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      if (!selectedProductForOrder) return;
+
+      const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const whatsapp = document.getElementById('custWhatsapp').value.trim();
+      const cnic = document.getElementById('custCnic').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+
+      const slipMessage = 
+`🧾 *ORDER SLIP - ETIMAD TRADERS*
+📍 _now in jinnah garden_
+━━━━━━━━━━━━━━━━━━━━
+📦 *Item:* ${selectedProductForOrder.name}
+🏷️ *Category:* ${selectedProductForOrder.category}
+💳 *Tareeqa:* ${paymentType}
+
+💰 *PRICE DETAILS:*
+• Naqad Price: Rs. ${Number(selectedProductForOrder.cashPrice).toLocaleString()}
+• Qist Advance: Rs. ${Number(selectedProductForOrder.advance).toLocaleString()}
+• Mahana Qist: Rs. ${Number(selectedProductForOrder.monthly).toLocaleString()}
+• Muddat: ${selectedProductForOrder.tenure}
+
+👤 *CUSTOMER DETAILS:*
+• *Naam:* ${name}
+• *Phone:* ${phone}
+• *WhatsApp:* ${whatsapp}
+• *CNIC:* ${cnic}
+• *Pata:* ${address}
+━━━━━━━━━━━━━━━━━━━━
+📅 *Date:* ${new Date().toLocaleDateString('en-GB')} | ${new Date().toLocaleTimeString()}
+_Sent via Online Order Portal_`;
+
+      const encodedUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_TARGET}&text=${encodeURIComponent(slipMessage)}`;
+      
+      window.open(encodedUrl, '_blank');
+      closeOrderModal();
+      document.getElementById('orderForm').reset();
+    }
+
+    function openAdminAuthModal() {
+      toggleMenu();
+      document.getElementById('adminPassInput').value = '';
+      document.getElementById('adminAuthModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('adminPassInput').focus(), 100);
+    }
+
+    function closeAdminAuthModal() {
+      document.getElementById('adminAuthModal').classList.add('hidden');
+    }
+
+    function checkAdminPassword() {
+      const enteredPass = document.getElementById('adminPassInput').value;
+      if (enteredPass === _AP_HASH) {
+        closeAdminAuthModal();
+        openAdminDashboard();
+      } else {
+        alert("Ghalat Password! Dobara koshish karein.");
+        document.getElementById('adminPassInput').value = '';
+      }
+    }
+
+    function openAdminDashboard() {
+      renderAdminList();
+      document.getElementById('adminDashboard').classList.remove('hidden');
+    }
+
+    function closeAdminDashboard() {
+      document.getElementById('adminDashboard').classList.add('hidden');
+    }
+
+    // GALLERY IMAGE READER WITH SMOOTH IN-BROWSER COMPRESSION
+    function handleImageSelection(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Resize to max 600px width for fast loading and low storage footprint
+          const maxWidth = 600;
+          const scale = maxWidth / img.width;
+          const targetWidth = img.width > maxWidth ? maxWidth : img.width;
+          const targetHeight = img.width > maxWidth ? (img.height * scale) : img.height;
+
+          canvas.width = targetWidth;
+          canvas.height = targetHeight;
+          ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+          // Convert to compressed jpeg base64
+          currentUploadedBase64 = canvas.toDataURL('image/jpeg', 0.82);
+
+          // Show Preview
+          document.getElementById('imagePreviewImg').src = currentUploadedBase64;
+          document.getElementById('imagePreviewWrapper').classList.remove('hidden');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function renderAdminList() {
+      const container = document.getElementById('adminProductsTable');
+      const counter = document.getElementById('adminTotalItems');
+      counter.innerText = `${products.length} Products Total`;
+
+      if (products.length === 0) {
+        container.innerHTML = `<p class="text-xs text-gray-500 py-6 text-center">No products found in database.</p>`;
+        return;
+      }
+
+      container.innerHTML = products.map(item => `
+        <div class="p-3 rounded-2xl liquid-glass flex items-center justify-between gap-3 border-white/5">
+          <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover bg-black/40" onerror="this.src='https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=700'" />
+          <div class="flex-1 min-w-0">
+            <h5 class="text-xs font-bold text-white truncate">${item.name}</h5>
+            <div class="flex gap-2 text-[10px] text-gray-400 mt-0.5">
+              <span>Category: <b class="text-gray-300">${item.category}</b></span>
+              <span>•</span>
+              <span>Cash: <b class="text-emerald-400">Rs. ${Number(item.cashPrice).toLocaleString()}</b></span>
+            </div>
+          </div>
+          <button onclick="deleteProduct(${item.id})" class="p-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 transition-all text-xs" title="Delete Product">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function handleProductAdd(e) {
+      e.preventDefault();
+
+      if (!currentUploadedBase64) {
+        alert("Bara-e-meherbani phone ki gallery se product ki photo zaroor select karein.");
+        return;
+      }
+
+      const newProduct = {
+        id: Date.now(),
+        category: document.getElementById('prodCategory').value.trim(),
+        name: document.getElementById('prodName').value.trim(),
+        cashPrice: Number(document.getElementById('prodCashPrice').value),
+        advance: Number(document.getElementById('prodAdvance').value),
+        monthly: Number(document.getElementById('prodMonthly').value),
+        tenure: document.getElementById('prodTenure').value.trim(),
+        image: currentUploadedBase64,
+        desc: document.getElementById('prodDesc').value.trim() || 'High quality domestic product with guarantee.'
+      };
+
+      products.unshift(newProduct);
+      syncLocalStorage();
+      renderAll();
+
+      document.getElementById('addProductForm').reset();
+      currentUploadedBase64 = "";
+      document.getElementById('imagePreviewWrapper').classList.add('hidden');
+      alert("Saman kamiyabi se phone ki gallery ki photo k sath add ho gaya!");
+    }
+
+    function deleteProduct(id) {
+      if (confirm("Kiya aap waqai iss product ko delete karna chahte hain?")) {
+        products = products.filter(p => p.id !== id);
+        syncLocalStorage();
+        renderAll();
+      }
+    }
+
+    function resetToSampleProducts() {
+      if (confirm("Default demo saman dobara load karna chahte hain?")) {
+        products = [...DEFAULT_PRODUCTS];
+        syncLocalStorage();
+        renderAll();
+      }
+    }
+  </script>
+</body>
+</html>
